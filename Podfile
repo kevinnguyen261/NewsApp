@@ -1,10 +1,11 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+def module_pod
+  pod 'NetworkService', :path => 'Modules/NetworkService'
+end
 
 target 'NewsApp' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
-  # Pods for NewsApp
-
+  
+  module_pod
+  pod 'Alamofire', '~> 5.0'
+  pod 'RxSwift', '~> 6.0'
 end
