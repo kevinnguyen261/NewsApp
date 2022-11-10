@@ -68,7 +68,7 @@ class NewsViewController: UIViewController {
                 guard let self = self else {
                     return
                 }
-                self.emptyView.isHidden = true
+                self.hideEmptyView()
                 self.tableView.isHidden = false
                 self.viewModel.keyword = text
                 self.initData()
@@ -76,8 +76,8 @@ class NewsViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: dispatchWorkItem)
             self.dispatchWorkItem = dispatchWorkItem
         } else {
-            self.emptyView.isHidden = false
-            self.tableView.isHidden = true
+            showInsertView()
+            tableView.isHidden = true
         }
     }
     
@@ -106,7 +106,7 @@ class NewsViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func collapseHeader() {
+    private func collapseHeader() {
         UIView.animate(
             withDuration: 0.2,
             animations: {
@@ -117,7 +117,7 @@ class NewsViewController: UIViewController {
         )
     }
     
-    func expandHeader() {
+    private func expandHeader() {
         UIView.animate(
             withDuration: 0.2,
             animations: {
@@ -126,6 +126,20 @@ class NewsViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         )
+    }
+    
+    private func showEmptyView() {
+        emptyLabel.text = "No news found"
+        emptyView.isHidden = false
+    }
+    
+    private func hideEmptyView() {
+        emptyView.isHidden = true
+    }
+    
+    private func showInsertView() {
+        emptyLabel.text = "Insert keyword to search headline news"
+        emptyView.isHidden = false
     }
 }
 
@@ -146,10 +160,10 @@ extension NewsViewController: BaseViewController {
         textField.delegate = self
         
         emptyLabel.font = AppStyle.shared.font.regular(size: 16)
-        emptyLabel.text = "Insert keyword to search headline news"
         emptyLabel.textAlignment = .center
         emptyLabel.numberOfLines = 0
         emptyLabel.textColor = .lightGray
+        showInsertView()
     }
     
     func initData() {
@@ -166,6 +180,11 @@ extension NewsViewController: BaseViewController {
                         return
                     }
                     self.news = news
+                    if self.news.data.isEmpty {
+                        self.showEmptyView()
+                    } else {
+                        self.hideEmptyView()
+                    }
                     self.tableView.reloadData()
                 },
                 onFailure: { [weak self] error in
