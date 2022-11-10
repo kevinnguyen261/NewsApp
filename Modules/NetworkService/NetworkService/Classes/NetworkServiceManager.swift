@@ -12,7 +12,7 @@ import RxSwift
 public class NetworkServiceManager {
     private let session: Session
     
-    init(session: Session) {
+    public init(session: Session) {
         self.session = session
     }
     
