@@ -16,7 +16,7 @@ public class NetworkServiceManager {
         self.session = session
     }
     
-    func requestCodable<T: Codable>(request: NetworkRequest) -> Single<T> {
+    public func requestCodable<T: Codable>(request: NetworkRequest) -> Single<T> {
         return Single.create { single in
             do {
                 let url = try request.makeUrl()
@@ -50,7 +50,7 @@ public class NetworkServiceManager {
         }
     }
     
-    func requestArrayCodable<T: Codable>(request: NetworkRequest) -> Single<[T]> {
+    public func requestArrayCodable<T: Codable>(request: NetworkRequest) -> Single<[T]> {
         return Single.create { single in
             do {
                 let url = try request.makeUrl()

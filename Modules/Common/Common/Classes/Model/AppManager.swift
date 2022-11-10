@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import NetworkService
 import Alamofire
+import NetworkService
 
-class AppManager {
-    static var shared = AppManager()
-    var network: NetworkServiceManager
+public class AppManager {
+    public static var shared = AppManager()
+    public var network: NetworkServiceManager
     
     init() {
         network = NetworkServiceManager(session: Session.default)

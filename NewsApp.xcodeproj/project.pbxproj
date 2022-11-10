@@ -10,8 +10,6 @@
 		68E12EDD291CD99D008D9D12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E12EDC291CD99D008D9D12 /* AppDelegate.swift */; };
 		68E12EE6291CD99E008D9D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E12EE5291CD99E008D9D12 /* Assets.xcassets */; };
 		68E12EE9291CD99E008D9D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E12EE7291CD99E008D9D12 /* LaunchScreen.storyboard */; };
-		68E12EF3291CE724008D9D12 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E12EF0291CE724008D9D12 /* AppManager.swift */; };
-		68E12EF4291CE724008D9D12 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E12EF1291CE724008D9D12 /* AppStyle.swift */; };
 		68E12EF5291CE724008D9D12 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E12EF2291CE724008D9D12 /* AppCoordinator.swift */; };
 		C988576CB73B9CC5B308F81E /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594A7D974CBFD28304AC95EE /* Pods_NewsApp.framework */; };
 /* End PBXBuildFile section */
@@ -25,8 +23,6 @@
 		68E12EE5291CD99E008D9D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68E12EE8291CD99E008D9D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68E12EEA291CD99E008D9D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68E12EF0291CE724008D9D12 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
-		68E12EF1291CE724008D9D12 /* AppStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		68E12EF2291CE724008D9D12 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,8 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				68E12EF2291CE724008D9D12 /* AppCoordinator.swift */,
-				68E12EF0291CE724008D9D12 /* AppManager.swift */,
-				68E12EF1291CE724008D9D12 /* AppStyle.swift */,
 				68E12EDC291CD99D008D9D12 /* AppDelegate.swift */,
 				68E12EE5291CD99E008D9D12 /* Assets.xcassets */,
 				68E12EE7291CD99E008D9D12 /* LaunchScreen.storyboard */,
@@ -205,10 +199,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68E12EF3291CE724008D9D12 /* AppManager.swift in Sources */,
 				68E12EF5291CE724008D9D12 /* AppCoordinator.swift in Sources */,
 				68E12EDD291CD99D008D9D12 /* AppDelegate.swift in Sources */,
-				68E12EF4291CE724008D9D12 /* AppStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
