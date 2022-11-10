@@ -21,7 +21,36 @@ public class HomeCoordinator: BaseCoordinator {
         let newsViewController: NewsViewController = NewsViewController.create()
         let viewModel = NewsViewModel()
         newsViewController.config(viewModel: viewModel)
+        viewModel
+            .onNextDetail
+            .subscribe(
+                onNext: { [weak self] news in
+                    self?.pushDetailNews(news)
+                }
+            ).disposed(by: disposeBag)
         navigationController.removeShadow()
         navigationController.pushViewController(newsViewController, animated: false)
+    }
+    
+    private func pushDetailNews(_ news: News) {
+        let newsDetailViewController: NewsDetailViewController = NewsDetailViewController.create()
+        let viewModel = NewsDetailViewModel()
+        viewModel
+            .onNextDetail
+            .subscribe(
+                onNext: { [weak self] url in
+                    self?.pushDetailImage(url)
+                }
+            ).disposed(by: disposeBag)
+        newsDetailViewController.config(viewModel: viewModel)
+        newsDetailViewController.news = news
+        navigationController.pushViewController(newsDetailViewController, animated: true)
+    }
+    
+    private func pushDetailImage(_ url: String) {
+        let detailImageViewController = DetailImageViewController(nibName: "DetailImageViewController", bundle: Bundle(for: DetailImageViewController.self))
+        detailImageViewController.imageUrl = url
+        detailImageViewController.modalPresentationStyle = .fullScreen
+        navigationController.present(detailImageViewController, animated: true)
     }
 }
